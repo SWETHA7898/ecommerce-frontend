@@ -1,0 +1,31 @@
+import "./products.css"
+import { useContext } from "react"
+import { StoreContext } from "../../context/store"
+import {useParams} from "react-router-dom"
+import BreadCrum from "../../components/breadcrum/breadcrum"
+import Display from "../../components/display/display"
+import Description from "../../components/description/description"
+
+function Products(){
+
+    const {contextvalue}=useContext(StoreContext)
+   
+   
+    const { productID } = useParams();
+    console.log("Extracted Product ID:", productID);
+
+    const product = contextvalue.find((e) => e.id === Number(productID));
+   
+    
+   
+    
+    return(
+        
+        <div>
+            <BreadCrum product={product}></BreadCrum>
+            <Display product={product}></Display>
+            <Description></Description>
+        </div>
+    )
+}
+export default Products

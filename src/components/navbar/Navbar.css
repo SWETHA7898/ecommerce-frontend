@@ -1,0 +1,189 @@
+
+.navbar img{
+    width: 50px;
+    border-radius: 50%;
+
+}
+.navbar{
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+   
+    
+}
+.header {
+    display: flex;
+    align-items: center;
+    color: #A8DADC;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.header span{
+    color:#F28D8D;
+    font-weight: bold;
+    font-size: xx-large;
+}
+.navmenu{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    font-size: 18px;
+    color: #333333;
+}
+.navmenu .active{
+
+    border-bottom: 2px solid ;
+    
+}
+.navmenu li:hover{
+    cursor: pointer;
+}
+.navright{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+}
+.navright button{
+    background: transparent;
+    font-size: 20px;
+    color:white;
+   
+    border: none;
+    border-radius: 50px;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition:  0.3s;
+   
+    background-color: #A8DADC;
+    
+
+}
+.navright button:active {
+    box-shadow: 4px 4px 10px rgba(168, 218, 220, 0.6);
+  }
+  
+i:hover{
+    color: #A8DADC;
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+.cart{
+    position: relative;
+}
+.cart .dot {
+    position: absolute;
+      width: 15px;
+    height: 15px;
+    background-color: #F28D8D;
+    border-radius: 11px;
+    top: -8px;
+    right: -8px;
+    text-align: center  ;
+    color: white;
+    font-size: 10px;
+    padding: 2px;
+    
+    
+}
+.nav-dropdown{
+    display: none;
+}
+.nav-dropdown.open {
+  transform: rotate(90deg);
+}
+
+
+  @media screen and (max-width: 900px) {
+    .navbar {
+      padding: 12px 20px; /* Reduced padding for smaller screens */
+    }
+    .header,
+    .header span {
+      font-size: x-large;
+    }
+    .navmenu {
+      gap: 15px;
+      font-size: 16px;
+    }
+    .navright i {
+      width: 20px;
+    }
+    .navright {
+      gap: 20px;
+    }
+    .navright button {
+      padding: 7px 20px;
+      font-size: 15px;
+    }
+  }
+  
+  @media screen and (max-width: 750px) {
+    .navbar {
+      padding: 10px 10px; /* Consistent small padding */
+    }
+    .header,
+    .header span {
+      font-size: large;
+    }
+    
+    .nav-dropdown{
+        display: block;
+       width: 30px; /* Set the width of the image */
+   
+       height: 30px; /* Set the height of the image */
+        cursor: pointer; /* Optional: Shows a pointer on hover */
+      object-fit: contain;
+        
+        rotate: -90deg;
+        transition: 0.5s;
+        
+        
+
+    }
+   
+    
+    
+    .navmenu{
+        display: none;
+      
+        
+        height: 40px;
+        width: 100%;
+        position: absolute;
+        background: white;
+        top: 45px;
+        justify-content: center;
+        z-index: 20;
+       
+        
+    }
+    .navmenu-visible{
+        display: flex;
+        
+    }
+    
+    
+ 
+}
+
+@media(max-width:500px){
+  .navbar{
+   width: 8px 0px;
+   gap: 0;
+  }
+  .header,
+    .header span {
+      font-size: x-large;
+    }
+  .nav-dropdown{
+    height: 25px;
+    width: 25px;
+    
+  }
+
+}

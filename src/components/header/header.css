@@ -1,0 +1,163 @@
+.hero{
+    margin: 10px ;
+    height: 43vw;
+    background-image: url('dog.jpg')  ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    position: relative;
+    border-radius: 20px;
+   
+    
+    
+}
+
+.hero-content{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    gap: 1.25vw;
+    text-align: center;
+    position: absolute;
+    bottom: 10%;
+    left: 2vw;
+    animation: bounceIn 1s ease-out;
+    align-items: center;
+}
+
+.hero-content h1{
+    font-size: max(4.5vw,22px);
+    margin-bottom: 20px;
+    margin-top: 40px;
+    color:white;
+    font-weight: 500;
+   
+    
+
+}
+@keyframes bounceIn {
+    0% {
+        transform: translateY(-300px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(30px);
+    }
+    80% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.hero-content {
+    animation: bounceIn 1s ease-out;
+}
+
+.hero-content p{
+    color:white;
+ 
+    
+    font-size: 2vw;
+    animation: fadeIn 2s ease-out;
+}
+
+.hero-latest-btn{
+    font-weight: 500;
+    padding: 1vw 3.2vw;
+    border-radius: 50px;
+    border: none;
+    font-size: max(1vw,13px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+    
+    color: white;
+    background-color: #A8DADC;
+    transition: 0.2s;
+    width: 180px;
+}
+.hero-latest-btn:hover{
+    transform: scale(1.1);
+    box-shadow: 4px 4px 10px rgba(168, 218, 220, 0.6);
+    cursor: pointer;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.hero-latest-btn {
+    animation: pulse 1s infinite;
+}
+
+@media(max-width:1280px) {
+    .hero-content h1{
+          font-size: 50px;
+    }
+    .hero-latest-btn{
+        width: 200px;
+        font-size: 12px;
+        gap: 10px;
+        height: 40px;
+    }
+    
+    
+
+    
+}
+@media(max-width:1024px) {
+    .hero-content h1{
+          font-size: 50px;
+    }
+    .hero-latest-btn{
+        width: 200px;
+        font-size: 12px;
+        gap: 10px;
+        height: 40px;
+    }
+    
+    
+
+    
+}
+@media(max-width:800px) {
+    .hero-content h1{
+          font-size: 35px;
+    }
+    .hero-latest-btn{
+        width: 180px;
+        font-size: 14px;
+    }
+
+    
+}
+
+@media(max-width:500px) {
+    .hero-content h1{
+          font-size: 22px;
+    }
+    .hero-content p{
+        font-size: 2.2vw;
+    }
+    .hero-latest-btn{
+        width: 125px;
+        font-size:  10px;
+        gap: 3px;
+        animation: none;
+        margin-top: 3px;
+        padding: 0 4px;
+    }
+
+    
+}
