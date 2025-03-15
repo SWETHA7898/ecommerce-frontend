@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 
 
 function Explore({category,setCategory}){
+  
     return(
         <div className="explore-menu" id="explore-menu">
             <h1 className="menu-text">Find Everything for Your Furry & Feathered Friends</h1>

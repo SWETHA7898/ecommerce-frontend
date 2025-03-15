@@ -5,7 +5,7 @@ import { StoreContext } from "../../context/store"
 
 function Display(props) {
     const { product } = props
-    const {addcart}=useContext(StoreContext)
+    const {addcart} =useContext(StoreContext)
     return (
         <div className="productdisplay">
             <div className="product-left">
@@ -39,9 +39,9 @@ function Display(props) {
                 </div>
                 <div className="product-right-prices">
                 <div className="product-right-newprice">
-                    {`\u20B9${product.new_price}`}</div>
+                    {`\u20B9${product.newprice}`}</div>
                 <div className="product-right-oldprice">
-                    {`\u20B9${product.old_price}`}
+                    {`\u20B9${product.oldprice}`}
 
                 </div>
                 

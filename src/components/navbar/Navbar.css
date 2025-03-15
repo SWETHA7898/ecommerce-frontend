@@ -31,7 +31,7 @@
     align-items: center;
     gap: 20px;
     list-style: none;
-    font-size: 18px;
+    font-size: 22px;
     color: #333333;
 }
 .navmenu .active{
@@ -114,11 +114,18 @@ i:hover{
       width: 20px;
     }
     .navright {
-      gap: 20px;
+      gap: 25px;
     }
     .navright button {
       padding: 7px 20px;
       font-size: 15px;
+    }
+    .cart i{
+      font-size: 20px;
+    }
+    .cart .dot{
+      top:-9px;
+      right: -12px;
     }
   }
   
@@ -144,7 +151,12 @@ i:hover{
         
         
 
+
     }
+    .cart i{
+      font-size: 20px;
+    }
+    
    
     
     
@@ -166,6 +178,13 @@ i:hover{
         display: flex;
         
     }
+    .cart i{
+      font-size: 20px;
+    }
+    .cart .dot{
+      top: -9px;
+      right:-12px;
+    }
     
     
  
@@ -184,6 +203,13 @@ i:hover{
     height: 25px;
     width: 25px;
     
+  }
+  .cart i{
+    font-size: 20px;
+  }
+  .cart .dot{
+    top: -9px;
+    right:-12px;
   }
 
 }

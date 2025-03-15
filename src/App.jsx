@@ -7,6 +7,7 @@ import ShopCategory from "./pages/shopcategory/ShopCategory"
 import LoginSignUp from "./pages/loginsignup/LoginSignUp"
 import { BrowserRouter } from "react-router-dom"
 import Footer from "./components/footer/footer"
+import Login from "./pages/login/login"
 
 
 
@@ -31,6 +32,7 @@ function App(){
     <Route path="/product/:productID" element={<Products />} />
 
         <Route path="/loginsignup" element={<LoginSignUp></LoginSignUp>}/>
+        <Route path="/login" element={<Login></Login>}/>
 
 
         

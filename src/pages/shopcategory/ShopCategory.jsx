@@ -1,40 +1,41 @@
-import { useContext, useEffect, useState } from "react"
-import "./ShopCategory.css"
-import { StoreContext } from "../../context/store"
-import Item from "../../components/item/item"
+import { useContext, useEffect, useState } from "react";
+import "./ShopCategory.css";
+import { StoreContext } from "../../context/store";
+import Item from "../../components/item/item";
 
-
-function ShopCategory(props){
-    const { contextvalue, setContextvalue } = useContext(StoreContext);
+function ShopCategory(props) {
+    const { contextvalue } = useContext(StoreContext);
     const [search, setSearch] = useState("");
-
-
-    const filterCategories = Array.isArray(props.category) ? props.category : [props.category];
-
-    const filteredProducts = (contextvalue?.filter(item => {
-        const categories = Array.isArray(item.category) ? item.category : [item.category];
-        return categories.some(category => filterCategories.includes(category)) && item.show;
-    })) || [];
+    const [filteredResults, setFilteredResults] = useState([]);
 
     useEffect(() => {
-        console.log("Search Term:", search);
-        if (search) {
-            const filteredCard = contextvalue.map(card => {
-                const matchesCategory = Array.isArray(card.category)
-                    ? card.category.some(cat => cat.toLowerCase().includes(search.toLowerCase()))
-                    : card.category.toLowerCase().includes(search.toLowerCase());
-                
-                const matchesName = card.name.toLowerCase().includes(search.toLowerCase());
-                const show = matchesCategory || matchesName;
+        if (!contextvalue) return;
 
-                console.log("Card:", card.name, "Show:", show);
-                return { ...card, show };
-            });
-            setContextvalue(filteredCard);
-        } else {
-            setContextvalue(prev => prev.map(card => ({ ...card, show: true })));
-        }
-    }, [search, setContextvalue]);
+        // Convert props.category to lowercase for case-insensitive filtering
+        const filterCategories = Array.isArray(props.category) 
+            ? props.category.map(cat => cat.toLowerCase()) 
+            : [props.category.toLowerCase()];
+
+        const results = contextvalue.filter((item) => {
+            // Ensure item.category is treated as an array
+            const itemCategories = Array.isArray(item.category) 
+                ? item.category.map(cat => cat.toLowerCase()) 
+                : [item.category.toLowerCase()];
+
+            // Check if the item matches the selected category
+            const matchesCategory = itemCategories.some(category => filterCategories.includes(category));
+
+            // Check if the item matches the search term
+            const matchesSearch = search 
+                ? item.name.toLowerCase().includes(search.toLowerCase()) || 
+                  itemCategories.some(cat => cat.includes(search.toLowerCase()))
+                : true;
+
+            return matchesCategory && matchesSearch;
+        });
+
+        setFilteredResults(results);
+    }, [search, contextvalue, props.category]);
 
     return (
         <div className="shop-category"> 
@@ -47,21 +48,20 @@ function ShopCategory(props){
                 />
                 <i className="fa-solid fa-magnifying-glass" style={{ color: "#333333" }}></i> 
             </div>
-            {
-                contextvalue.filter(card => card.show).length == 0 && (
-                    <h1>No Items to Show, Try searching with different value</h1>
-                )
-            }
+
+            {filteredResults.length === 0 && (
+                <h1>No Items to Show, Try searching with a different value</h1>
+            )}
 
             <div className="sort-category">
-                {filteredProducts.map(item => (
+                {filteredResults.map((item) => (
                     <Item
                         key={item.id}
                         id={item.id}
                         name={item.name}
                         image={item.image}
-                        new_price={item.new_price}
-                        old_price={item.old_price}
+                        new_price={item.newprice}
+                        old_price={item.oldprice}
                     />
                 ))}
             </div>
@@ -69,4 +69,4 @@ function ShopCategory(props){
     );
 }
 
-export default ShopCategory
+export default ShopCategory;

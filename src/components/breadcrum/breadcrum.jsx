@@ -6,7 +6,7 @@ function BreadCrum(props){
         <div className="breadcrum">
         HOME <img src={assests.breadcrum} alt="" /> SHOP 
         <img src={assests.breadcrum} alt="" /> 
-        {product.category[0]}
+        {product.category}
         <img src={assests.breadcrum} alt="" /> 
         {product?.name}
        

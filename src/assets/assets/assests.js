@@ -104,7 +104,7 @@ export const assests={
 
 export const data=[{
     id:1,
-    name:"PEDIGREE ADULT ",
+    name:"PEDIGREE ADULT",
     image:p1_img,
     new_price:50.00,
     old_price:80.50,

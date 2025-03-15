@@ -25,9 +25,9 @@ function CartItem() {
                             <div className="cart-products cartitems-main" key={e.id}>
                                 <img src={e.image} alt="" className="cartimg" />
                                 <p>{e.name}</p>
-                                <p>{`\u20B9${e.new_price}`}</p>
+                                <p>{`\u20B9${e.newprice}`}</p>
                                 <button className="cart-quantity">{cartitem[e.id]}</button>
-                                <p>{`\u20B9${e.new_price * cartitem[e.id]}`}</p>
+                                <p>{`\u20B9${e.newprice * cartitem[e.id]}`}</p>
                                 <img
                                     className="remove-icon"
                                     src={assests.remove}

@@ -1,15 +1,24 @@
 import "./popular.css"
-import { data } from "../../assets/assets/assests"
+
 import Item from "../item/item"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 function Popular(){
+    const[data,setdata]=useState([])
+
+    useEffect(()=>{
+        axios.get("http://localhost:3000/popular").then((res)=>setdata(res.data))
+        .catch((err)=>console.log("err"))
+
+    },[])
     return(
         <div className="popular">
             <h1>POPULAR IN DOGS</h1>
             <hr/>
             <div className="popular-item">
                 {data.map((item,i)=>{
-                    return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price}></Item>
+                    return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.newprice} old_price={item.oldprice}></Item>
                 })}
             </div>
         </div>
